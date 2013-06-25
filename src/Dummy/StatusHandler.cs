@@ -11,10 +11,17 @@ namespace Dummy
 		{
 			var appSetting = ConfigurationManager.AppSettings["Environment"];
 
+			var s = context.Request.QueryString["env"];
+			context.Response.TrySkipIisCustomErrors = true;
 			if (string.IsNullOrEmpty(appSetting))
 			{
-				context.Response.AddHeader("X-7d-CustomMessage", "[Environment] setting missing from config file");
 				context.Response.StatusCode = (int)HttpStatusCode.ServiceUnavailable;
+				context.Response.Write("[Environment] setting missing from config file");
+			}
+			else if (!string.IsNullOrEmpty(s) && s != appSetting)
+			{
+				context.Response.StatusCode = (int)HttpStatusCode.Conflict;
+				context.Response.Write(string.Format("Environment is not {0} it's {1}", s, appSetting));
 			}
 			else
 			{
