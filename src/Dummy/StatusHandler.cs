@@ -11,7 +11,7 @@ namespace Dummy
 		{
 			var appSetting = ConfigurationManager.AppSettings["Environment"];
 
-			var s = context.Request.QueryString["env"];
+			var s = context.Request.QueryString["env"].ToLower();
 			context.Response.TrySkipIisCustomErrors = true;
 			if (string.IsNullOrEmpty(appSetting))
 			{
