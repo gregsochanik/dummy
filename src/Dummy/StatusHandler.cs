@@ -11,14 +11,14 @@ namespace Dummy
 		{
 			var appSetting = ConfigurationManager.AppSettings["Environment"];
 
-			var s = context.Request.QueryString["env"].ToLower();
+			var s = context.Request.QueryString["env"] ?? string.Empty;
 			context.Response.TrySkipIisCustomErrors = true;
 			if (string.IsNullOrEmpty(appSetting))
 			{
 				context.Response.StatusCode = (int)HttpStatusCode.ServiceUnavailable;
 				context.Response.Write("[Environment] setting missing from config file");
 			}
-			else if (!string.IsNullOrEmpty(s) && s != appSetting)
+			else if (!string.IsNullOrEmpty(s) && s.ToLower() != appSetting)
 			{
 				context.Response.StatusCode = (int)HttpStatusCode.Conflict;
 				context.Response.Write(string.Format("Environment is not {0} it's {1}", s, appSetting));
