@@ -4,6 +4,7 @@ SET SERVER=staging.7digital-devint.co.uk
 SET HOST=dummy-uat.7digital-devint.co.uk
 SET VIRTUAL_APP=/my_app
 SET WEBROOT=/cygdrive/c/inetpub/%APP%/
+SET WINROOT=C:/inetpub/%APP%/
 SET ENV_NAME=uat
 SET VIRTUAL_APP_ROOT=%WEBROOT%/uat_my_app
 SET APPOOLRUNTIMEVERSION=v4.0
