@@ -1,5 +1,5 @@
 SET 
-SET APP=7d-instant
+SET APP=7d-dummy
 SET SERVER=prod-extapp01.win.sys.7d
 SET HOST=dummy.7digital.com
 SET VIRTUAL_APP=/m
