@@ -7,6 +7,6 @@ Simply run the scripts and verify that the site has been set up and is running b
 
 You can even add env={EXPECTED_ENVIRONMENT} to the end to assert that the expected environment setup has been deployed. 
 
-The service will return a 400 if incorrect.
+The service will return a 409 Conflict along with a message to that effect if incorrect.
 
 
