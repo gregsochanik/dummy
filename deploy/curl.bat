@@ -1,1 +1,0 @@
-CALL %BIN_FOLDER%\curl\curl.exe -v http://%SERVER%/_service/status -f -H "Host: %HOST%"
